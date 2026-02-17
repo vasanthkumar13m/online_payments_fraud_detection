@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predict Fraud</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #acb6e5, #74ebd5);
+        }
+
+        .container {
+            width: 40%;
+            margin: auto;
+            margin-top: 60px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0 15px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2f80ed;
+            color: white;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1c6dd0;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Transaction Details</h2>
+
+    <form action="/submit" method="post">
+
+        <label>Step</label>
+        <input type="number" name="step" required>
+
+        <label>Transaction Type</label>
+        <select name="type" required>
+            <option value="CASH_IN">CASH_IN</option>
+            <option value="CASH_OUT">CASH_OUT</option>
+            <option value="DEBIT">DEBIT</option>
+            <option value="PAYMENT">PAYMENT</option>
+            <option value="TRANSFER">TRANSFER</option>
+        </select>
+
+        <label>Amount</label>
+        <input type="number" step="any" name="amount" required>
+
+        <label>Old Balance (Sender)</label>
+        <input type="number" step="any" name="oldbalanceOrg" required>
+
+        <label>New Balance (Sender)</label>
+        <input type="number" step="any" name="newbalanceOrig" required>
+
+        <label>Old Balance (Receiver)</label>
+        <input type="number" step="any" name="oldbalanceDest" required>
+
+        <label>New Balance (Receiver)</label>
+        <input type="number" step="any" name="newbalanceDest" required>
+
+        <button type="submit">Predict Fraud</button>
+    </form>
+</div>
+
+</body>
+</html>
